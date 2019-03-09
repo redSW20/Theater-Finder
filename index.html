@@ -17,10 +17,21 @@
         <form>
             <div class="form-row">
                 <div class="col">
-                <input type="date" class="form-control" placeholder="Pick Up Date">
+                    <label for="pickupLocation">Picking Up Airport</label>
+                    <input type="text" id="pickupLocation" class="form-control" placeholder="Pick-up Location">
                 </div>
                 <div class="col">
-                    <!-- <label for="pickupTime"></label> -->
+                    <label for="dropoffLocation">Dropping Off Airport</label>
+                    <input type="text" id="dropoffLocation" class="form-control" placeholder="Drop-off Location">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="pickupDate">Pick-up Date</label>
+                    <input type="date" id="pickupDate" class="form-control" placeholder="Pick-up Date">
+                </div>
+                <div class="col">
+                    <label for="pickupTime">Pick-up Time</label>
                     <select class="form-control" id="pickupTime" name="time1">
                         <option value="1200am">12:00am</option>
                         <option value="1230am">12:30am</option>
@@ -73,10 +84,11 @@
                     </select>
                 </div>
                 <div class="col">
-                <input type="date" class="form-control" placeholder="Return Date">
+                    <label for="dropoffDate">Drop-off Date</label>
+                <input type="date" id="dropoffDate" class="form-control" placeholder="Drop-off Date">
                 </div>
                 <div class="col">
-                    <!-- <label for="dropoffTime"></label> -->
+                    <label for="dropoffTime"></label>
                     <select class="form-control" id="dropoffTime" name="time2">
                         <option value="1200am">12:00am</option>
                         <option value="1230am">12:30am</option>
@@ -129,14 +141,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="col">
-                <input type="text" class="form-control" placeholder="Pick Up Location">
-                </div>
-                <div class="col">
-                <input type="text" class="form-control" placeholder="Return Location">
-                </div>
-            </div>
+            
         </form>
     </div>
     
