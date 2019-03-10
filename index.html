@@ -14,6 +14,7 @@
 
 
     <div class="container">
+        <label for="carRentalSearch"><h3>Enter Car Search Criteria</h3></label>
         <form>
             <div class="form-row">
                 <div class="col">
@@ -25,6 +26,8 @@
                     <input type="text" id="dropoffLocation" class="form-control" placeholder="Drop-off Location">
                 </div>
             </div>
+
+            <br>
             <div class="form-row">
                 <div class="col">
                     <label for="pickupDate">Pick-up Date</label>
@@ -85,10 +88,10 @@
                 </div>
                 <div class="col">
                     <label for="dropoffDate">Drop-off Date</label>
-                <input type="date" id="dropoffDate" class="form-control" placeholder="Drop-off Date">
+                    <input type="date" id="dropoffDate" class="form-control" placeholder="Drop-off Date">
                 </div>
                 <div class="col">
-                    <label for="dropoffTime"></label>
+                    <label for="dropoffTime">Drop-off Time</label>
                     <select class="form-control" id="dropoffTime" name="time2">
                         <option value="1200am">12:00am</option>
                         <option value="1230am">12:30am</option>
@@ -141,7 +144,22 @@
                     </select>
                 </div>
             </div>
-            
+
+            <br>
+            <div class="form-row">
+                <div class="col">
+                    <label for="vehicleClass">Select Vehicle Class (optional)</label>
+                    <select class="form-control" id="vehicleClass">
+                        <option value="economy">Economy</option>
+                        <option value="compact">Compact</option>
+                        <option value="mid-size">Mid-Size</option>
+                        <option value="sedan">Sedan</option>
+                    </select>
+                </div>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary mb-2">Search Available Vehicles</button>
         </form>
     </div>
     
