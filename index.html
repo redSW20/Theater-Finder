@@ -13,7 +13,7 @@
 <body>
 
 
-    <div class="container">
+    <div class="container card">
         <label for="carRentalSearch"><h3>Enter Car Search Criteria</h3></label>
         <form>
             <div class="form-row">
@@ -161,6 +161,37 @@
             <br>
             <button type="submit" class="btn btn-primary mb-2">Search Available Vehicles</button>
         </form>
+    </div>
+
+    <br>
+
+    <div class="container card">
+        <div class="card-header mb-3">
+            Search Results
+        </div>
+        <table class="table" id="searchResults">
+            <thead>
+                <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Agency</th>
+                <th scope="col">Car Class</th>
+                <th scope="col">Pick-up Location</th>
+                <th scope="col">Price per Day</th>
+                <th scope="col">Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- dummy table info to be removed -->
+                <tr>
+                <td>Hertzenspiel</td>
+                <td>Man-Bus</td>
+                <td>Overthere</td>
+                <td>$25</td>
+                <td>$125</td>
+                </tr>
+                
+            </tbody>
+        </table>
     </div>
     
 
