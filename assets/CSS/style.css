@@ -1,0 +1,18 @@
+#banner {
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+body {
+    margin: 5px;
+}
+
+.booklabel {
+    width: 75px;
+}
+.booknumselect {
+    width: 10px;
+}
+.bookcombo {
+    width: 125px;
+}
