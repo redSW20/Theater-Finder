@@ -1,7 +1,23 @@
-body {
-    background: url(https://ak4.picdn.net/shutterstock/videos/806464/thumb/1.jpg?i10c=img) no-repeat center center/cover;
-}
-
 .container {
     background-color: rgba(255, 255, 255, 0.9) !important;
 }
+
+#banner {
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+body {
+    margin: 5px;
+    background: url(https://ak4.picdn.net/shutterstock/videos/806464/thumb/1.jpg?i10c=img) no-repeat center center/cover;
+}
+
+.booklabel {
+    width: 75px;
+}
+.booknumselect {
+    width: 10px;
+}
+.bookcombo {
+    width: 125px;
+
