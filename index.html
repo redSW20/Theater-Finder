@@ -8,139 +8,43 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/CSS/style.css">
+
     <script src="assets/javascript/main.js"></script>
+
 </head>
 <body>
 
 
     <div class="container card">
-        <label for="carRentalSearch"><h3>Enter Car Search Criteria</h3></label>
+        <label for="carRentalSearch"><h3>Let's Go to the Movies!</h3></label>
         <form>
             <div class="form-row">
                 <div class="col">
-                    <label for="pickupLocation">Picking Up Airport</label>
-                    <input type="text" id="pickupLocation" class="form-control" placeholder="Pick-up Location">
+                    <label for="movieZIP">Enter ZIP Code</label>
+                    <input type="text" id="movieZIP" class="form-control" placeholder="ZIP Code">
                 </div>
                 <div class="col">
-                    <label for="dropoffLocation">Dropping Off Airport</label>
-                    <input type="text" id="dropoffLocation" class="form-control" placeholder="Drop-off Location">
+                    <label for="movieCityState">OR Enter City + State</label>
+                    <input type="text" id="movieCityState" class="form-control" placeholder="City + State">
+                </div>
+                <div class="col">
+                    <label for="movieTitle">OR Movie Title</label>
+                    <input type="text" id="movieTitle" class="form-control" placeholder="Movie">
                 </div>
             </div>
 
             <br>
             <div class="form-row">
                 <div class="col">
-                    <label for="pickupDate">Pick-up Date</label>
-                    <input type="date" id="pickupDate" class="form-control" placeholder="Pick-up Date">
+                    <label for="movieDate">Date</label>
+                    <input type="date" id="movieDate" class="form-control" placeholder="Movie Date">
                 </div>
                 <div class="col">
-                    <label for="pickupTime">Pick-up Time</label>
-                    <select class="form-control" id="pickupTime" name="time1">
-                        <option value="1200am">12:00am</option>
-                        <option value="1230am">12:30am</option>
-                        <option value="100am">1:00am</option>
-                        <option value="130am">1:30am</option>
-                        <option value="200am">2:00am</option>
-                        <option value="230am">2:30am</option>
-                        <option value="300am">3:00am</option>
-                        <option value="330am">3:30am</option>
-                        <option value="400am">4:00am</option>
-                        <option value="430am">4:30am</option>
-                        <option value="500am">5:00am</option>
-                        <option value="530am">5:30am</option>
-                        <option value="600am">6:00am</option>
-                        <option value="630am">6:30am</option>
-                        <option value="700am">7:00am</option>
-                        <option value="730am">7:30am</option>
-                        <option value="800am">8:00am</option>
-                        <option value="830am">8:30am</option>
-                        <option value="900am">9:00am</option>
-                        <option value="930am">9:30am</option>
-                        <option value="1000am">10:00am</option>
-                        <option value="1030am" selected>10:30am</option>
-                        <option value="1100am">11:00am</option>
-                        <option value="1130am">11:30am</option>
-                        <option value="1200pm">12:00pm</option>
-                        <option value="1230pm">12:30pm</option>
-                        <option value="100pm">1:00pm</option>
-                        <option value="130pm">1:30pm</option>
-                        <option value="200pm">2:00pm</option>
-                        <option value="230pm">2:30pm</option>
-                        <option value="300pm">3:00pm</option>
-                        <option value="330pm">3:30pm</option>
-                        <option value="400pm">4:00pm</option>
-                        <option value="430pm">4:30pm</option>
-                        <option value="500pm">5:00pm</option>
-                        <option value="530pm">5:30pm</option>
-                        <option value="600pm">6:00pm</option>
-                        <option value="630pm">6:30pm</option>
-                        <option value="700pm">7:00pm</option>
-                        <option value="730pm">7:30pm</option>
-                        <option value="800pm">8:00pm</option>
-                        <option value="830pm">8:30pm</option>
-                        <option value="900pm">9:00pm</option>
-                        <option value="930pm">9:30pm</option>
-                        <option value="1000pm">10:00pm</option>
-                        <option value="1030pm">10:30pm</option>
-                        <option value="1100pm">11:00pm</option>
-                        <option value="1130pm">11:30pm</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <label for="dropoffDate">Drop-off Date</label>
-                    <input type="date" id="dropoffDate" class="form-control" placeholder="Drop-off Date">
-                </div>
-                <div class="col">
-                    <label for="dropoffTime">Drop-off Time</label>
-                    <select class="form-control" id="dropoffTime" name="time2">
-                        <option value="1200am">12:00am</option>
-                        <option value="1230am">12:30am</option>
-                        <option value="100am">1:00am</option>
-                        <option value="130am">1:30am</option>
-                        <option value="200am">2:00am</option>
-                        <option value="230am">2:30am</option>
-                        <option value="300am">3:00am</option>
-                        <option value="330am">3:30am</option>
-                        <option value="400am">4:00am</option>
-                        <option value="430am">4:30am</option>
-                        <option value="500am">5:00am</option>
-                        <option value="530am">5:30am</option>
-                        <option value="600am">6:00am</option>
-                        <option value="630am">6:30am</option>
-                        <option value="700am">7:00am</option>
-                        <option value="730am">7:30am</option>
-                        <option value="800am">8:00am</option>
-                        <option value="830am">8:30am</option>
-                        <option value="900am">9:00am</option>
-                        <option value="930am">9:30am</option>
-                        <option value="1000am">10:00am</option>
-                        <option value="1030am" selected>10:30am</option>
-                        <option value="1100am">11:00am</option>
-                        <option value="1130am">11:30am</option>
-                        <option value="1200pm">12:00pm</option>
-                        <option value="1230pm">12:30pm</option>
-                        <option value="100pm">1:00pm</option>
-                        <option value="130pm">1:30pm</option>
-                        <option value="200pm">2:00pm</option>
-                        <option value="230pm">2:30pm</option>
-                        <option value="300pm">3:00pm</option>
-                        <option value="330pm">3:30pm</option>
-                        <option value="400pm">4:00pm</option>
-                        <option value="430pm">4:30pm</option>
-                        <option value="500pm">5:00pm</option>
-                        <option value="530pm">5:30pm</option>
-                        <option value="600pm">6:00pm</option>
-                        <option value="630pm">6:30pm</option>
-                        <option value="700pm">7:00pm</option>
-                        <option value="730pm">7:30pm</option>
-                        <option value="800pm">8:00pm</option>
-                        <option value="830pm">8:30pm</option>
-                        <option value="900pm">9:00pm</option>
-                        <option value="930pm">9:30pm</option>
-                        <option value="1000pm">10:00pm</option>
-                        <option value="1030pm">10:30pm</option>
-                        <option value="1100pm">11:00pm</option>
-                        <option value="1130pm">11:30pm</option>
+                    <label for="movieTime">Movie Time!</label>
+                    <select class="form-control" id="movieTime" name="time1">
+                        <option value="morning" selected>morning</option>
+                        <option value="afternoon">afternoon</option>
+                        <option value="evening">evening</option>
                     </select>
                 </div>
             </div>
@@ -148,18 +52,19 @@
             <br>
             <div class="form-row">
                 <div class="col">
-                    <label for="vehicleClass">Select Vehicle Class (optional)</label>
-                    <select class="form-control" id="vehicleClass">
-                        <option value="economy">Economy</option>
-                        <option value="compact">Compact</option>
-                        <option value="mid-size">Mid-Size</option>
-                        <option value="sedan">Sedan</option>
+                    <label for="ratingSelector">Select Vehicle Class (optional)</label>
+                    <select class="form-control" id="ratingSelector">
+                        <option value="noSelection">--</option>
+                        <option value="ratedG">G</option>
+                        <option value="ratedPG">PG</option>
+                        <option value="ratedPG-13">PG-13</option>
+                        <option value="ratedR">R</option>
                     </select>
                 </div>
             </div>
 
             <br>
-            <button type="submit" class="btn btn-primary mb-2">Search Available Vehicles</button>
+            <button type="submit" class="btn btn-primary mb-2">Search Movies!</button>
         </form>
     </div>
 
@@ -167,27 +72,27 @@
 
     <div class="container card">
         <div class="card-header mb-3">
-            Search Results
+            Movie Search Results
         </div>
         <table class="table" id="searchResults">
             <thead>
                 <tr>
                 <!-- <th scope="col">#</th> -->
-                <th scope="col">Agency</th>
-                <th scope="col">Car Class</th>
-                <th scope="col">Pick-up Location</th>
-                <th scope="col">Price per Day</th>
-                <th scope="col">Total Price</th>
+                <th scope="col">Movie</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Run Time</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Times</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- dummy table info to be removed -->
                 <tr>
-                <td>Hertzenspiel</td>
-                <td>Man-Bus</td>
-                <td>Overthere</td>
-                <td>$25</td>
-                <td>$125</td>
+                <td>Captain Marvel</td>
+                <td>PG-13</td>
+                <td>2 hr, 4 min</td>
+                <td>Action/Adventure, Sci-Fi/Fantasy</td>
+                <td>11:30a, 1:00p, 2:40p, 4:10p, 6:00p, 7:30p, 9:10p, 10:40p</td>
                 </tr>
                 
             </tbody>
@@ -198,5 +103,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/javascript/main.js"></script>
 </body>
 </html>

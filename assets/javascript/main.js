@@ -1,3 +1,4 @@
+
 function makeAjaxCall() {
     // console.log("showPics ...");
     // var param1 = $(this).attr("qryParam1").toLowerCase().replace(" ","+");
@@ -17,3 +18,4 @@ function makeAjaxCall() {
 }
 
 makeAjaxCall();
+
