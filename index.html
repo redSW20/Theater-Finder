@@ -9,14 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/CSS/style.css">
 
-    <script src="assets/javascript/main.js"></script>
 
 </head>
 <body>
 
 
     <div class="container card">
-        <label for="carRentalSearch"><h3>Let's Go to the Movies!</h3></label>
+        <label for="movieSearch"><h3>Let's Go to the Movies!</h3></label>
         <form>
             <div class="form-row">
                 <div class="col">
@@ -52,7 +51,7 @@
             <br>
             <div class="form-row">
                 <div class="col">
-                    <label for="ratingSelector">Select Vehicle Class (optional)</label>
+                    <label for="ratingSelector">Select Movie Rating (optional)</label>
                     <select class="form-control" id="ratingSelector">
                         <option value="noSelection">--</option>
                         <option value="ratedG">G</option>
@@ -64,7 +63,7 @@
             </div>
 
             <br>
-            <button type="submit" class="btn btn-primary mb-2">Search Movies!</button>
+            <button type="submit" id="submitBtn" class="btn btn-primary mb-2">Search Movies!</button>
         </form>
     </div>
 
