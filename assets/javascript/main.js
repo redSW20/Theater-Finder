@@ -6,9 +6,10 @@ $(document).ready(function () {
         event.preventDefault();
 
 
+var ticketprices = [12,9,8,5];
 
+//makeAjaxCall();
 
-        // function makeAjaxCall() {
         var limit = 10;
         var qryURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=2019-03-20&zip=37076&api_key=mdd9zjstfnweg7aereckewe6";
         console.log(qryURL);
@@ -42,7 +43,7 @@ $(document).ready(function () {
             )};
         });
 
-        // }
+      
 
         // makeAjaxCall();
 
