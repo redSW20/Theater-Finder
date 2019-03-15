@@ -17,7 +17,6 @@ $(document).ready(function () {
             url: qryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
             $("results").text(JSON.stringify(response));
             console.log(response[0]);   
             
