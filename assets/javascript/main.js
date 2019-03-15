@@ -17,5 +17,7 @@ function makeAjaxCall() {
 
 }
 
-makeAjaxCall();
+var ticketprices = [12,9,8,5];
+
+//makeAjaxCall();
 

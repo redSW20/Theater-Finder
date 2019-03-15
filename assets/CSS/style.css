@@ -17,7 +17,21 @@ body {
 }
 .booknumselect {
     width: 10px;
+    
 }
 .bookcombo {
-    width: 125px;
-
+    width: 150px;
+}
+.aligncenter {
+  padding: 10px 0;
+  text-align: center;
+}
+.currency {
+    float: right;
+}
+#pay-btn {
+    visibility: hidden;
+}
+#pay-card {
+    visibility: hidden;
+}
