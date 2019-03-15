@@ -1,11 +1,11 @@
 $('document').ready( function() {
 //variables to store user input from index.html input form
 var searchZip;
-// var searchCityState;
-// var searchMovie;
+//need to add search default to be today
 var searchDate;
-// var searchTimes;
-// var searchRating;
+// search for City State will be enabled when Google Maps API is implemented
+// var searchCityState;
+
 
 
 //on submit button on click call the api based on search parameters entered in form
