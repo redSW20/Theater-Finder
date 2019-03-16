@@ -66,11 +66,6 @@ function showPayCard() {
     $("#pay-card").css("visibility","visible");
 }
 function processPayment(event) {
-    event.preventDefault();
-    if(!$("#payform").validate().valid()){
-        return;
-    }
-    console.log("payment");
     var cType = $("form :radio").val().trim(); 
     var cName = $("#name-input").val().trim(); 
     var cNumber = $("#cardnumber-input").val().trim(); 
@@ -98,15 +93,69 @@ function processPayment(event) {
     newBooking.time = moment(movieTime).format("X");
     newBooking.theater = theater;
 
-    database.ref().push(newBooking);
+    // database.ref().push(newBooking);
  
 };
 
 $(".booknumselect").change(".booknumselect", calcTotal);
-$("#payment-btn").click(processPayment);
+// $("#payment-btn").click(processPayment);
 $("#pay-btn").click(showPayCard);
 
 
+$("#payform").submit(function(e) {
+    e.preventDefault();
+}).validate
+
+
+//   $("form[name='payform']").validate
+  ({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      typeRadio:  "required",
+      cardname:  {"required":true 
+                  ,"minlength": 5
+                //   ,"regexp":"^[a-zA-Z'.\s]{1,40}$" 
+                },
+      cardnumber: "required",
+      cardexpire: "required",
+      cardzip: "required"
+    //    email: {
+    //     required: true,
+    //     // Specify that email should be validated
+    //     // by the built-in "email" rule
+    //     email: true
+    //   },
+    //   password: {
+    //     required: true,
+    //     minlength: 5
+    //   }
+    },
+    // Specify validation error messages
+    messages: {
+        typeRadio: "Please enter card type",
+        cardname: {"required":"Please enter name","minlength":"Requires at least {0} characters"},
+        cardnumber: "Please enter card number",
+        cardexpire: "Please enter card expiration (MM/YY)",
+        cardzip: "Please enter zip code"
+    //   password: {
+    //     required: "Please provide a password",
+    //     minlength: "Your password must be at least 5 characters long"
+    //   },
+    //   email: "Please enter a valid email address"
+    },
+    // ,
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+        alert("doing somestuff");
+    //   form.submit();
+        return processPayment();
+    }
+  });
+// });
 
 
 
