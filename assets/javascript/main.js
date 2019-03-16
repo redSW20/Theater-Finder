@@ -6,11 +6,7 @@ $('document').ready( function() {
 	// search for City State will be enabled when Google Maps API is implemented
 	// var searchCityState;
 
-
-
-	//on submit button on click call the api based on search parameters entered in form
-    $('#submitBtn').on('click', function(event) {
-        event.preventDefault();
+    $("#sbmt-btn").on("click", function (event) {
         var date =  $('#movieDate').val().trim();
         if (date != "") {
             searchDate = moment(date).format("YYYY-MM-DD");
@@ -38,55 +34,70 @@ $('document').ready( function() {
             url: qryURL,
             method: "GET"
         }).then(function (response) {
-            // $("#results").text(JSON.stringify(response));
-            // console.log(response);   
-            // console.log(response[0]);   
+          // $("results").text(JSON.stringify(response));
+            console.log(response);   
+            
+
             var table = $("#t1");
-                   // <td>$<DELETE ME WITH AN IF STATEMENT TO PREVENT READ ERROR FROM LACK OF RATING CODE>{response[i].ratings.code}</td>
-            var tbody = $("#tablebody");
-            // for (var i = 0; i < response.length; i++) {
+
             for (var i = 0; i < 10; i++) {
-                console.log(i);
-                var rT = response[i];
-                console.log(rT);
-                var title = rT.title;
-                var ratings = rT.ratings;
-                var rating = "not rated";
-                if(ratings != null) {
-                    rating = ratings[0].code;
-                }
-                var runtime = rT.runTime; 
-                var genres = rT.genres;
-                // var genre = "";
-                // for(var j = 0;j < genres.length;j++){
-                //     genre += genre+ " "; 
-                // }
-                //display showtimes later
-                var showtimes = rT.showtimes;
-                // var rT = rT.substr(2);
+                var rT = response[i].runTime;
+                var rT = rT.substr(2);
+                // console.log(rT);
+                var ratings = response[i].ratings[0].code;
+                var rating = "Not Rated"
+                if (ratings == null) {
+                    ratings = rating
+                };
 
-                var row = $("<tr>");
-                var colTitle = $("<td>").text(title);
-                var colRating = $("<td>").text(rating);
-                var colRuntime = $("<td>").text(runtime);
-                var colGenre = $("<td>").text(genres);
-                row.append(colTitle);
-                row.append(colRating);
-                row.append(colRuntime);
-                row.append(colGenre);
-                tbody.append(row);
+                var theater = response[i].showtimes[0].theatre.name;
+                // console.log(theater);
+                
 
-            // table.append(
-            //     `<tr>
-            //     <th scope="row">${response[i].title}</th>
-            //     <td>${rT}</td>
-            //     <td>${response[i].genres}</td>
-            //     <td> INSERT SHOWTIMES HERE</td>
-            //     </tr>`
-            // )
-            }
+                var showtime = response[i].showtimes;
+                var times = [];
+                for (var s = 0; s < showtime.length; s++) {
+                    // console.log(showtime[s].dateTime);
+                    
+                          times.push(showtime[s].dateTime)
+                };
+                console.log(times);
+
+                var displayTimes = [];
+                for (let z = 0; z < times.length; z++) {
+                    displayTimes.push(moment(times[z]).format("HH:MM"))
+                        var display = [];
+                        for (var d = 0; d < displayTimes.length; d++) {
+                            
+                            display.push(`<button class = "book-btn">${displayTimes[d]}</button>`)
+                            
+                        };
+                };
+                console.log(displayTimes);
+                                
+
+
+                table.append(
+                    `<tr>
+                    <th scope="row">${response[i].title}</th>
+                    <td>${ratings}</td>
+                    <td>${rT}</td>
+                    <td>${response[i].genres}</td>
+                    <td>${theater}</td>
+                    <td>${display}</td>
+                    </tr>`
+            )};
         });
+
 
     };
 
-}); 
+    $(document).on("click", ".book-btn", function () {
+        event.preventDefault();
+        window.location="booking.html";
+    }); 
+    //before push to merge, fix path issue for booking html---
+
+
+
+});
