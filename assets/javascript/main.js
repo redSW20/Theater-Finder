@@ -43,16 +43,16 @@ $(document).ready(function () {
                 var displayTimes = [];
                 for (let z = 0; z < times.length; z++) {
                     displayTimes.push(moment(times[z]).format("HH:MM"))
-
+                        var display = [];
+                        for (var d = 0; d < displayTimes.length; d++) {
+                            
+                            display.push(`<button class = "book-btn" href = "booking.html">${displayTimes[d]}</button>`)
+                            
+                        };
                 };
                 console.log(displayTimes);
                 
-                var display = [];
-                for (var d = 0; d < displayTimes.length; d++) {
-                    
-                    display.push(`<button class = "book-btn">${displayTimes}</button>`)
-                    
-                };
+
 
                 // var display = $.each(displayTimes).append(`<button class = "book-btn">${displayTimes}</button>`)
                 
@@ -74,6 +74,7 @@ $(document).ready(function () {
     })
 
     $("book-btn").on("click", function () {
+        event.preventDefault();
         window.location="hhtps://rls5113.github.io/team6/booking.html";
     }); 
 
