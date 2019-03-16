@@ -1,7 +1,14 @@
-$(function() {
+// $(function() {
   // Initialize form validation on the registration form.
   // It has the name attribute "registration"
-  $("form[name='payform']").validate({
+
+  $("#payform").submit(function(e) {
+    e.preventDefault();
+}).validate
+
+
+//   $("form[name='payform']").validate
+  ({
     // Specify validation rules
     rules: {
       // The key name on the left side is the name attribute
@@ -35,12 +42,14 @@ $(function() {
     //     minlength: "Your password must be at least 5 characters long"
     //   },
     //   email: "Please enter a valid email address"
-    }
+    },
     // ,
     // Make sure the form is submitted to the destination defined
     // in the "action" attribute of the form when valid
-    // submitHandler: function(form) {
+    submitHandler: function(form) {
+        alert("doing somestuff");
     //   form.submit();
-    // }
+        return processPayment();
+    }
   });
-});
+// });
