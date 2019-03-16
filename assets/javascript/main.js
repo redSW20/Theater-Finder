@@ -38,12 +38,13 @@ $(document).ready(function () {
                     
                           times.push(showtime[s].dateTime)
                 };
-                // console.log(times);
+                console.log(times);
 
+                var displayTimes = [];
                 for (let z = 0; z < times.length; z++) {
-                    var displayTime = moment(times[z]).format("HH:MM A")
+                    displayTimes.push(moment(times[z]).format("HH:MM"))
                 };
-                console.log(displayTime);
+                console.log(displayTimes);
                 
                 
 
@@ -55,7 +56,7 @@ $(document).ready(function () {
                     <td>${rT}</td>
                     <td>${response[i].genres}</td>
                     <td>${theater}</td>
-                    <td>${displayTime}</td>
+                    <td>${displayTimes}</td>
                     </tr>`
             )};
         });
