@@ -46,16 +46,12 @@ $(document).ready(function () {
                         var display = [];
                         for (var d = 0; d < displayTimes.length; d++) {
                             
-                            display.push(`<button class = "book-btn" href = "booking.html">${displayTimes[d]}</button>`)
+                            display.push(`<button class = "book-btn">${displayTimes[d]}</button>`)
                             
                         };
                 };
                 console.log(displayTimes);
-                
-
-
-                // var display = $.each(displayTimes).append(`<button class = "book-btn">${displayTimes}</button>`)
-                
+                                
 
 
                 table.append(
@@ -73,10 +69,11 @@ $(document).ready(function () {
 
     })
 
-    $("book-btn").on("click", function () {
+    $(document).on("click", ".book-btn", function () {
         event.preventDefault();
-        window.location="hhtps://rls5113.github.io/team6/booking.html";
+        window.location="booking.html";
     }); 
+    //before push to merge, fix path issue for booking html---
 
 
 
