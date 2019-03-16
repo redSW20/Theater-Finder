@@ -19,6 +19,7 @@
     crossorigin="anonymous"></script>
     <!-- Moment.js Reference -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
 
 <body>
     <div class="jumbotron" id="banner">
@@ -153,7 +154,7 @@
                         <h5 class="card-title">Enter payment information</h5>
                         <p class="card-text">Do not enter real payment information. Data is stored, but never processed and is open to the world.</p>
                        <!-- Entry Form -->
-                       <form>
+                       <form id="payform" action="">
                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -181,13 +182,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name-input">Cardholder Name</label>
-                                        <input class="form-control" id="name-input" placeholder="As shown on card" type="text">
+                                        <input class="form-control" id="name-input" name="cardname" placeholder="As shown on card" type="text">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="cardnumber-input">Card Number</label>
-                                        <input class="form-control" id="cardnumber-input" placeholder="Numbers only" type="text">
+                                        <input class="form-control" id="cardnumber-input" name="cardnumber" placeholder="Numbers only" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -195,17 +196,17 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="expire-input">Card Expiration</label>
-                                        <input class="form-control" id="expire-input" placeholder="mm/yy" type="text">
+                                        <input class="form-control" id="expire-input" name="cardexpire" placeholder="mm/yy" type="text">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="zip-input">Cardholder ZIP Code</label>
-                                        <input class="form-control" id="zip-input" placeholder="As shown in billing address" type="text">
+                                        <input class="form-control" id="zip-input" name="cardzip" placeholder="As shown in billing address" type="text">
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary" id="payment-btn">Submit</button>
+                            <button type="button" class="btn btn-primary" id="payment-btn">Submit</button>
                         </form>
                         </div>
 
@@ -216,8 +217,7 @@
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
 
-</script>
-
+<script src="assets/javascript/booking-form-validation.js"></script>
 <script src="assets/javascript/booking.js"></script>
-
+<script>$("payform").validate();</script>
 </html>

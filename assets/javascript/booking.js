@@ -1,3 +1,6 @@
+$(document).ready(function() {
+
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCQHYc2AoFXqoxwnOJXL1xgl5-P-jiBRsk",
@@ -18,6 +21,9 @@ var movieTime = "04/01/2019 08:00";
 var prices = [12, 8, 5, 9];
 var charges = [0, 0, 0, 0];
 var seatHolder = [0, 0, 0, 0];
+
+
+
 function getSum(total, num) {
     return total + num;
 }
@@ -61,6 +67,9 @@ function showPayCard() {
 }
 function processPayment(event) {
     event.preventDefault();
+    if(!$("#payform").validate().valid()){
+        return;
+    }
     console.log("payment");
     var cType = $("form :radio").val().trim(); 
     var cName = $("#name-input").val().trim(); 
@@ -69,7 +78,7 @@ function processPayment(event) {
     var cZip = $("#zip-input").val().trim(); 
     var totalSeats = seatHolder.reduce(getSum);
     var grandtotal = charges.reduce(getSum);
-
+   
     console.log(cType);
     console.log(cName);
     console.log(cNumber);
@@ -97,3 +106,8 @@ $(".booknumselect").change(".booknumselect", calcTotal);
 $("#payment-btn").click(processPayment);
 $("#pay-btn").click(showPayCard);
 
+
+
+
+
+});
