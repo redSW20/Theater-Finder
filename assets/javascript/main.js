@@ -43,9 +43,18 @@ $(document).ready(function () {
                 var displayTimes = [];
                 for (let z = 0; z < times.length; z++) {
                     displayTimes.push(moment(times[z]).format("HH:MM"))
+
                 };
                 console.log(displayTimes);
                 
+                var display = [];
+                for (var d = 0; d < displayTimes.length; d++) {
+                    
+                    display.push(`<button class = "book-btn">${displayTimes}</button>`)
+                    
+                };
+
+                // var display = $.each(displayTimes).append(`<button class = "book-btn">${displayTimes}</button>`)
                 
 
 
@@ -56,11 +65,18 @@ $(document).ready(function () {
                     <td>${rT}</td>
                     <td>${response[i].genres}</td>
                     <td>${theater}</td>
-                    <td>${displayTimes}</td>
+                    <td>${display}</td>
                     </tr>`
             )};
         });
 
 
     })
+
+    $("book-btn").on("click", function () {
+        window.location="hhtps://rls5113.github.io/team6/booking.html";
+    }); 
+
+
+
 });
