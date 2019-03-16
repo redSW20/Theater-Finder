@@ -26,7 +26,26 @@ $(document).ready(function () {
                 if (ratings == null) {
                     ratings = rating
                 };
-                // console.log(ratings);
+
+                var theater = response[i].showtimes[0].theatre.name;
+                // console.log(theater);
+                
+
+                var showtime = response[i].showtimes;
+                var times = [];
+                for (var s = 0; s < showtime.length; s++) {
+                    // console.log(showtime[s].dateTime);
+                    
+                          times.push(showtime[s].dateTime)
+                };
+                // console.log(times);
+
+                for (let z = 0; z < times.length; z++) {
+                    var displayTime = moment(times[z]).format("HH:MM A")
+                };
+                console.log(displayTime);
+                
+                
 
 
                 table.append(
@@ -35,7 +54,8 @@ $(document).ready(function () {
                     <td>${ratings}</td>
                     <td>${rT}</td>
                     <td>${response[i].genres}</td>
-                    <td> INSERT SHOWTIMES HERE</td>
+                    <td>${theater}</td>
+                    <td>${displayTime}</td>
                     </tr>`
             )};
         });
