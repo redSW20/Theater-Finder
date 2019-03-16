@@ -47,7 +47,6 @@
     // Make sure the form is submitted to the destination defined
     // in the "action" attribute of the form when valid
     submitHandler: function(form) {
-        alert("doing somestuff");
     //   form.submit();
         return processPayment();
     }

@@ -1,8 +1,8 @@
 $('document').ready( function() {
 	//variables to store user input from index.html input form
-	var searchZip;
+	var searchZip="&zip=37213";
 	//need to add search default to be today
-	var searchDate;
+	var searchDate = moment().add(1,"d").format("YYYY-MM-DD");
 	// search for City State will be enabled when Google Maps API is implemented
 	// var searchCityState;
 
@@ -11,8 +11,14 @@ $('document').ready( function() {
 	//on submit button on click call the api based on search parameters entered in form
     $('#submitBtn').on('click', function(event) {
         event.preventDefault();
-        searchZip = $('#movieZIP').val().trim();
-        searchDate = $('#movieDate').val().trim();
+        var date =  $('#movieDate').val().trim();
+        if (date != "") {
+            searchDate = moment(date).format("YYYY-MM-DD");
+        }
+        var zip = $('#movieZIP').val().trim();
+        if(zip != ""){
+            searchZip = "&zip="+ zip;  
+        }
         console.log(searchZip);
         makeAjaxCall();
         searchZip = $('#movieZIP').val('');
@@ -23,7 +29,7 @@ $('document').ready( function() {
         // console.log("showPics ...");
         // var param1 = $(this).attr("qryParam1").toLowerCase().replace(" ","+");
         var limit = 10;
-        var qryURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + searchDate + "&zip=" + searchZip + "&api_key=mdd9zjstfnweg7aereckewe6";
+        var qryURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + searchDate + searchZip + "&api_key=mdd9zjstfnweg7aereckewe6";
 
         console.log(qryURL);
         

@@ -46,8 +46,7 @@ function calcTotal(event) {
         $("#pay-btn").css("visibility","hidden");
         $("#pay-card").css("visibility","hidden");
     }
-    //   var id = this.id;
-    console.log(numTickets);
+    // console.log(numTickets);
 }
 var newBooking = {
     type: "",
@@ -74,11 +73,11 @@ function processPayment(event) {
     var totalSeats = seatHolder.reduce(getSum);
     var grandtotal = charges.reduce(getSum);
    
-    console.log(cType);
-    console.log(cName);
-    console.log(cNumber);
-    console.log(cExpiry);
-    console.log(cZip);
+    // console.log(cType);
+    // console.log(cName);
+    // console.log(cNumber);
+    // console.log(cExpiry);
+    // console.log(cZip);
 
     newBooking.type = cType;
     newBooking.name = cName;
@@ -88,12 +87,12 @@ function processPayment(event) {
     newBooking.seats = totalSeats; 
     newBooking.amt = grandtotal;
     newBooking.booking = moment().format("X");
-    
+    //these values come from front page
     newBooking.movie = movie;
     newBooking.time = moment(movieTime).format("X");
     newBooking.theater = theater;
 
-    // database.ref().push(newBooking);
+    database.ref().push(newBooking);
  
 };
 
@@ -105,9 +104,6 @@ $("#pay-btn").click(showPayCard);
 $("#payform").submit(function(e) {
     e.preventDefault();
 }).validate
-
-
-//   $("form[name='payform']").validate
   ({
     // Specify validation rules
     rules: {
@@ -155,7 +151,6 @@ $("#payform").submit(function(e) {
         return processPayment();
     }
   });
-// });
 
 
 
