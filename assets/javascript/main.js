@@ -29,12 +29,13 @@ $('document').ready( function() {
         // console.log("showPics ...");
         // var param1 = $(this).attr("qryParam1").toLowerCase().replace(" ","+");
         var limit = 10;
-        var qryURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + searchDate + searchZip + "&api_key=mdd9zjstfnweg7aereckewe6";
+        var qryURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + searchDate + searchZip + "&api_key=xw86j6eejrw4z8npzsxjwexx";
+        var proxyURL = "https://cors-anywhere.herokuapp.com/"
 
         console.log(qryURL);
         
         $.ajax({
-            url: qryURL,
+            url: proxyURL + qryURL,
             method: "GET"
         }).then(function (response) {
             $("results").text(JSON.stringify(response));
