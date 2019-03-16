@@ -1,109 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Booking</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/CSS/style.css">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+
 <body>
     <div class="jumbotron" id="banner">
         <h1>Booking</h1>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <h5 class="card-header">Booking box</h5>
                     <div class="card-body">
-                      <h5 class="card-title">Choose number and type of tickets</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <div class="input-group mb-1 bookcombo">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text booklabel" for="inputAdultSelect">Adult</label>
+                        <h5 class="card-title">Choose number and type of tickets</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <div class="row">
+                            <div class="col-md-4" >
+                                <div class="input-group mb-1 bookcombo">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text booklabel" for="adult-0">Adult</label>
+                                    </div>
+                                    <select class="custom-select booknumselect" id="adult-0">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 aligncenter"> X $12.00</div>
+                            <div class="col-md-4">
+                                <h2 id="adulttotal"class="currency"></h2>
+                            </div>
                         </div>
-                        <select class="custom-select booknumselect" id="inputAdultSelect">
-                          <option value="0">0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                        </select>
-                        <span>X $10.00</span>
-                      </div>
-                      <div class="input-group mb-1 bookcombo">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text booklabel" for="inputStudentSelect">Student</label>
+                        <div class="row">
+                            <div class="col-md-4" >
+                                <div class="input-group mb-1 bookcombo">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text booklabel" for="student-1">Student</label>
+                                    </div>
+                                    <select class="custom-select booknumselect" id="student-1">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 aligncenter"> X $8.00</div>
+                            <div class="col-md-4">
+                                <h2 id="studenttotal"class="currency"></h2>
+                            </div>
                         </div>
-                        <select class="custom-select booknumselect" id="inputStudentSelect">
-                          <option value="0">0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                        </select>
-                        <span>X $10.00</span>
-                      </div>
-                      <div class="input-group mb-1 bookcombo">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text booklabel" for="inputChildSelect">Child</label>
+                        <div class="row">
+                            <div class="col-md-4" >
+                                <div class="input-group mb-1 bookcombo">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text booklabel" for="child-2">Child</label>
+                                    </div>
+                                    <select class="custom-select booknumselect" id="child-2">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 aligncenter"> X $5.00</div>
+                            <div class="col-md-4">
+                                <h2 id="childtotal"class="currency"></h2>
+                            </div>
                         </div>
-                        <select class="custom-select booknumselect" id="inputChildSelect">
-                          <option value="0">0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                        </select>
-                        <span>X $10.00</span>
-                      </div>
-                      <div class="input-group mb-1 bookcombo">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text booklabel" for="inputSeniorSelect">Senior</label>
+
+                        <div class="row">
+                            <div class="col-md-4" >
+                                <div class="input-group mb-1 bookcombo">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text booklabel" for="senior-3">Senior</label>
+                                    </div>
+                                    <select class="custom-select booknumselect" id="senior-3">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 aligncenter"> X $9.00</div>
+                            <div class="col-md-4">
+                                <h2 id="seniortotal"class="currency"></h2>
+                            </div>
                         </div>
-                        <select class="custom-select booknumselect" id="inputSeniorSelect">
-                          <option value="0">0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                        </select>
-                        <span>X $10.00</span>
-                      </div>
-                      
+                        <hr style="border: 2px solid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                    <a href="#" id="pay-btn" class="btn btn-primary ">Purchase</a>
+                            </div>
+                            <div class="col-md-6">
+                                <h1 id="grandtotal" class="currency"></h1>
+                            </div>
+                        </div>
 
-
-
-
-
-                     <a href="#" class="btn btn-primary">Buy Tickets</a>
                     </div>
-                    
-                  </div>               
+
+                </div>
+            </div>
+        </div>
+        <hr style="border: 2px solid">
+        <div class="row" id="pay-card">
+            <div class="col-md-12">
+                <div class="card">
+                    <h5 class="card-header">Payment</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Enter payment information</h5>
+                        <p class="card-text">Do not enter real payment information. Data is stored, but never processed and is open to the world.</p>
+                       <!-- Entry Form -->
+                       <form name="payform" id="payform" action="">
+                           <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div><label for="inlineRadioOptions">Credit Card Type</label></div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="typeRadio" id="visa" value="visa">
+                                        <label class="form-check-label" for="visa">Visa</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="typeRadio" id="mastercard" value="mastercard">
+                                        <label class="form-check-label" for="mastercard">Mastercard</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="typeRadio" id="discover" value="discover">
+                                        <label class="form-check-label" for="discover">Discover </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="typeRadio" id="amex" value="amex">
+                                        <label class="form-check-label" for="amex">American Express </label>
+                                    </div>
+                                    </div>
+                                </div>
+                           </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name-input">Cardholder Name</label>
+                                        <input class="form-control" id="name-input" name="cardname" placeholder="As shown on card" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardnumber-input">Card Number</label>
+                                        <input class="form-control" id="cardnumber-input" name="cardnumber" placeholder="Numbers only" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="expire-input">Card Expiration</label>
+                                        <input class="form-control" id="expire-input" name="cardexpire" placeholder="mm/yy" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="zip-input">Cardholder ZIP Code</label>
+                                        <input class="form-control" id="zip-input" name="cardzip" placeholder="As shown in billing address" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="payment-btn">Submit</button>
+                        </form>
+                        </div>
+
+                </div>
             </div>
         </div>
     </div>
 </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="assets/javascript/main.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+
+<script src="assets/javascript/booking.js"></script>
 </html>
