@@ -30,7 +30,7 @@ $('document').ready( function() {
         // var param1 = $(this).attr("qryParam1").toLowerCase().replace(" ","+");
         var limit = 10;
         var qryURL = "https://data.tmsapi.com/v1.1/movies/showings?startDate=" + searchDate + searchZip + "&api_key=xw86j6eejrw4z8npzsxjwexx";
-        var proxyURL = "\"
+        var proxyURL = ""
 
         console.log(qryURL);
         
