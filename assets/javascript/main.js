@@ -33,10 +33,10 @@ $('document').ready( function() {
 
         console.log(qryURL);
         
-        $.ajax({
-            url: qryURL,
-            method: "GET"
-        }).then(function (response) {
+        // $.ajax({
+        //     url: qryURL,
+        //     method: "GET"
+        // }).then(function (response) {
             // $("#results").text(JSON.stringify(response));
             // console.log(response);   
             // console.log(response[0]);   
