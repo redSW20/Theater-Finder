@@ -1,14 +1,14 @@
 $('document').ready( function() {
-//variables to store user input from index.html input form
-var searchZip;
-//need to add search default to be today
-var searchDate;
-// search for City State will be enabled when Google Maps API is implemented
-// var searchCityState;
+	//variables to store user input from index.html input form
+	var searchZip;
+	//need to add search default to be today
+	var searchDate;
+	// search for City State will be enabled when Google Maps API is implemented
+	// var searchCityState;
 
 
 
-//on submit button on click call the api based on search parameters entered in form
+	//on submit button on click call the api based on search parameters entered in form
     $('#submitBtn').on('click', function(event) {
         event.preventDefault();
         searchZip = $('#movieZIP').val().trim();
@@ -30,10 +30,25 @@ var searchDate;
         $.ajax({
             url: qryURL,
             method: "GET"
-        }).then( function(response) {
-            console.log(JSON.stringify(response));
+        }).then(function (response) {
             $("results").text(JSON.stringify(response));
-        }); 
+            console.log(response[0]);   
+            var table = $("#t1");
+                   // <td>$<DELETE ME WITH AN IF STATEMENT TO PREVENT READ ERROR FROM LACK OF RATING CODE>{response[i].ratings.code}</td>
+
+            for (var i = 0; i < response.length; i++) {
+                var rT = response[i].runTime;
+                var rT = rT.substr(2);
+                console.log(rT);
+            table.append(
+                `<tr>
+                <th scope="row">${response[i].title}</th>
+                <td>${rT}</td>
+                <td>${response[i].genres}</td>
+                <td> INSERT SHOWTIMES HERE</td>
+                </tr>`
+            )};
+        });
 
     };
 

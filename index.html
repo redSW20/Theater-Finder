@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/CSS/style.css">
 
-
 </head>
 <body>
 
@@ -26,7 +25,14 @@
                     <label for="movieCityState">OR Enter City + State</label>
                     <input type="text" id="movieCityState" class="form-control" placeholder="City + State">
                 </div>
-                
+                <div class="col">
+                    <label for="movieTitle">OR Movie Title</label>
+                    <input type="text" id="movieTitle" class="form-control" placeholder="Movie">
+                </div>
+            </div>
+            <br>
+
+            <div class="form-row">
                 <div class="col">
                     <label for="movieDate">Date</label>
                     <input type="date" id="movieDate" class="form-control" placeholder="Movie Date">
@@ -35,6 +41,7 @@
 
             <br>
             <button type="submit" id="submitBtn" class="btn btn-primary mb-2">Search Movies!</button>
+
         </form>
     </div>
 
@@ -47,7 +54,7 @@
         <table class="table" id="searchResults">
             <thead>
                 <tr>
-                <!-- <th scope="col">#</th> -->
+                <th scope="col">#</th>
                 <th scope="col">Movie</th>
                 <th scope="col">Rating</th>
                 <th scope="col">Run Time</th>
@@ -56,7 +63,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- dummy table info to be removed -->
+                dummy table info to be removed
                 <tr>
                 <td>Captain Marvel</td>
                 <td>PG-13</td>
