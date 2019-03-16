@@ -1,12 +1,34 @@
-$(document).ready(function () {
+$('document').ready( function() {
+	//variables to store user input from index.html input form
+	var searchZip="&zip=37213";
+	//need to add search default to be today
+	var searchDate = moment().add(2,"d").format("YYYY-MM-DD");
+	// search for City State will be enabled when Google Maps API is implemented
+	// var searchCityState;
 
-    $(".sbmt-btn").on("click", function (event) {
+    $("#sbmt-btn").on("click", function (event) {
         event.preventDefault();
 
-        // function makeAjaxCall() {
-        var qryURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=2019-03-20&zip=37076&api_key=xw86j6eejrw4z8npzsxjwexx";
-        console.log(qryURL);
+        var date =  $('#movieDate').val().trim();
+        if (date != "") {
+            searchDate = moment(date).format("YYYY-MM-DD");
+        }
+        var zip = $('#movieZIP').val().trim();
+        if(zip != ""){
+            searchZip = "&zip="+ zip;  
+        }
+        console.log(searchZip);
+        makeAjaxCall();
+        searchZip = $('#movieZIP').val('');
+    });
 
+    //function to call api
+    function makeAjaxCall() {
+        var qryURL = "https://data.tmsapi.com/v1.1/movies/showings?startDate=" + searchDate + searchZip + "&api_key=xw86j6eejrw4z8npzsxjwexx";
+        
+
+        console.log(qryURL);
+        
         $.ajax({
             url: qryURL,
             method: "GET"
@@ -67,14 +89,10 @@ $(document).ready(function () {
         });
 
 
-    })
+    };
 
     $(document).on("click", ".book-btn", function () {
         event.preventDefault();
         window.location="booking.html";
     }); 
-    //before push to merge, fix path issue for booking html---
-
-
-
 });

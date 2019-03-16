@@ -12,9 +12,8 @@
 </head>
 <body>
 
-
     <div class="container card">
-        <label for="carRentalSearch"><h3>Let's Go to the Movies!</h3></label>
+        <label for="movieSearch"><h3>Let's Go to the Movies!</h3></label>
         <form>
             <div class="form-row">
                 <div class="col">
@@ -24,26 +23,10 @@
                 <div class="col">
                     <label for="movieCityState">OR Enter City + State</label>
                     <input type="text" id="movieCityState" class="form-control" placeholder="City + State">
-                </div>
-                <div class="col">
-                    <label for="movieTitle">OR Movie Title</label>
-                    <input type="text" id="movieTitle" class="form-control" placeholder="Movie">
-                </div>
-            </div>
-            <br>
-
-            <div class="form-row">
+                </div>            
                 <div class="col">
                     <label for="movieDate">Date</label>
                     <input type="date" id="movieDate" class="form-control" placeholder="Movie Date">
-                </div>
-                <div class="col">
-                    <label for="movieTime">Movie Time!</label>
-                    <select class="form-control" id="movieTime" name="time1">
-                        <option value="morning" selected>morning</option>
-                        <option value="afternoon">afternoon</option>
-                        <option value="evening">evening</option>
-                    </select>
                 </div>
             </div>
 
@@ -64,43 +47,17 @@
                           </table>
 
             </div>
+            <button type="submit" id="sbmt-btn" class="btn btn-primary mb-2">Search Movies!</button>
 
-            <br>
-            <button type="submit" class="btn btn-primary mb-2 sbmt-btn">Search Movies!</button>
+
         </form>
     </div>
 
     <br>
 
-    <!-- <div class="container card">
-        <div class="card-header mb-3">
-            Movie Search Results
-        </div>
-        <table class="table" id="searchResults">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Movie</th>
-                <th scope="col">Rating</th>
-                <th scope="col">Run Time</th>
-                <th scope="col">Genre</th>
-                <th scope="col">Times</th>
-                </tr>
-            </thead>
-            <tbody>
-                dummy table info to be removed
-                <tr>
-                <td>Captain Marvel</td>
-                <td>PG-13</td>
-                <td>2 hr, 4 min</td>
-                <td>Action/Adventure, Sci-Fi/Fantasy</td>
-                <td>11:30a, 1:00p, 2:40p, 4:10p, 6:00p, 7:30p, 9:10p, 10:40p</td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div> -->
-    
+
+    </div>
+ 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
