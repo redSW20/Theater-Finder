@@ -2,7 +2,7 @@ $('document').ready( function() {
 	//variables to store user input from index.html input form
 	var searchZip="&zip=37213";
 	//need to add search default to be today
-	var searchDate = moment().add(1,"d").format("YYYY-MM-DD");
+	var searchDate = moment().add(2,"d").format("YYYY-MM-DD");
 	// search for City State will be enabled when Google Maps API is implemented
 	// var searchCityState;
 
@@ -37,23 +37,53 @@ $('document').ready( function() {
             url: qryURL,
             method: "GET"
         }).then(function (response) {
-            $("results").text(JSON.stringify(response));
-            console.log(response[0]);   
+            // $("#results").text(JSON.stringify(response));
+            // console.log(response);   
+            // console.log(response[0]);   
             var table = $("#t1");
                    // <td>$<DELETE ME WITH AN IF STATEMENT TO PREVENT READ ERROR FROM LACK OF RATING CODE>{response[i].ratings.code}</td>
-
-            for (var i = 0; i < response.length; i++) {
-                var rT = response[i].runTime;
-                var rT = rT.substr(2);
+            var tbody = $("#tablebody");
+            // for (var i = 0; i < response.length; i++) {
+            for (var i = 0; i < 10; i++) {
+                console.log(i);
+                var rT = response[i];
                 console.log(rT);
-            table.append(
-                `<tr>
-                <th scope="row">${response[i].title}</th>
-                <td>${rT}</td>
-                <td>${response[i].genres}</td>
-                <td> INSERT SHOWTIMES HERE</td>
-                </tr>`
-            )};
+                var title = rT.title;
+                var ratings = rT.ratings;
+                var rating = "not rated";
+                if(ratings != null) {
+                    rating = ratings[0].code;
+                }
+                var runtime = rT.runTime; 
+                var genres = rT.genres;
+                // var genre = "";
+                // for(var j = 0;j < genres.length;j++){
+                //     genre += genre+ " "; 
+                // }
+                //display showtimes later
+                var showtimes = rT.showtimes;
+                // var rT = rT.substr(2);
+
+                var row = $("<tr>");
+                var colTitle = $("<td>").text(title);
+                var colRating = $("<td>").text(rating);
+                var colRuntime = $("<td>").text(runtime);
+                var colGenre = $("<td>").text(genres);
+                row.append(colTitle);
+                row.append(colRating);
+                row.append(colRuntime);
+                row.append(colGenre);
+                tbody.append(row);
+
+            // table.append(
+            //     `<tr>
+            //     <th scope="row">${response[i].title}</th>
+            //     <td>${rT}</td>
+            //     <td>${response[i].genres}</td>
+            //     <td> INSERT SHOWTIMES HERE</td>
+            //     </tr>`
+            // )
+            }
         });
 
     };
