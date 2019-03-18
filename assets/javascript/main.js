@@ -2,12 +2,15 @@ $('document').ready( function() {
 	//variables to store user input from index.html input form
 	var searchZip="&zip=37213";
 	//need to add search default to be today
-	var searchDate = moment().add(2,"d").format("YYYY-MM-DD");
+    var searchDate = moment().add(1,"d").format("YYYY-MM-DD");
+    $('#movieDate').val(searchDate);
+    console.log(searchDate);
 	// search for City State will be enabled when Google Maps API is implemented
 	// var searchCityState;
 
     $("#sbmt-btn").on("click", function (event) {
         var date =  $('#movieDate').val().trim();
+        event.preventDefault();
         if (date != "") {
             searchDate = moment(date).format("YYYY-MM-DD");
         }
@@ -92,7 +95,7 @@ $('document').ready( function() {
 
     };
 
-    $(document).on("click", ".book-btn", function () {
+    $(document).on("click", ".book-btn", function (event) {
         event.preventDefault();
         window.location="booking.html";
     }); 
