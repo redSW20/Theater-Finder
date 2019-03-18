@@ -1,6 +1,7 @@
 $('document').ready( function() {
 	//variables to store user input from index.html input form
-	var searchZip = "";
+    var searchZip = "";
+    var latlngZip = "";
 	//need to add search default to be today
     var searchDate = moment().add(1,"d").format("YYYY-MM-DD");
     $('#movieDate').val(searchDate);
@@ -160,11 +161,14 @@ $('document').ready( function() {
                 }).then(function (response1) {
                     for (i = 0; i < response1.results[0].address_components.length; i++) {
                         if (response1.results[0].address_components[i].types = 'postal_code' && /^\d{5}$/.test(response1.results[0].address_components[i].long_name.trim())) {
-                            searchZip = response1.results[0].address_components[i].long_name;
+                            latlngZip = response1.results[0].address_components[i].long_name;
                             console.log(response1);
+
+                            searchZip = "&zip=" + latlngZip;
                             
-                            $('#movieZIP').val(searchZip);
+                            $('#movieZIP').val(latlngZip);
                             console.log(searchZip);
+                            
                             makeAjaxCall();
                             // searchZip = $('#movieZIP').val('');
                             
