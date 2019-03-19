@@ -16,6 +16,7 @@ $('document').ready( function() {
     var lngResults;
 
     $("#sbmt-btn").on("click", function (event) {
+        event.preventDefault();
         var date =  $('#movieDate').val().trim();
         // event.preventDefault();
         if (date == "") {
@@ -29,9 +30,7 @@ $('document').ready( function() {
             makeAjaxCall();
             searchZip = $('#movieZIP').val('');
         } 
-        // console.log(searchZip);
-        // makeAjaxCall();
-        // searchZip = $('#movieZIP').val('');
+
         else {
             searchPlace = $('#movieCityState').val().trim();
 
@@ -46,8 +45,13 @@ $('document').ready( function() {
             searchPlace = $('#movieCityState').val('');
         }
     });
-
-    //function to call api
+ 
+    function displayRuntime(str) {
+        var hours = parseInt(str.substring(0,2));
+        var minutes = parseInt(str.substring(3,5));
+        return (hours * 60) + minutes;
+    }
+    //function to call api.
     function makeAjaxCall() {
         // console.log("showPics ...");
         // var param1 = $(this).attr("qryParam1").toLowerCase().replace(" ","+");
@@ -71,59 +75,54 @@ $('document').ready( function() {
                 var rT = response[i].runTime;
                 var rT = rT.substr(2);
                 // console.log(rT);
-                var ratings = response[i].ratings[0].code;
-                var rating = "Not Rated"
-                if (ratings == null) {
-                    ratings = rating
-                };
+                var title = response[i].title;
+                var ratings = response[i].ratings;
+                var rating = "Not Rated";
+                if (ratings != null) {
+                    rating = ratings[0].code;
+                }
 
                 var theater = response[i].showtimes[0].theatre.name;
                 // console.log(theater);
-                
+                var genres = response[i].genres;
+                genres = genres.toString().split(",").join(", ");
 
                 var showtime = response[i].showtimes;
-                var times = [];
-                for (var s = 0; s < showtime.length; s++) {
-                    // console.log(showtime[s].dateTime);
-                    
-                          times.push(showtime[s].dateTime)
-                };
-                console.log(times);
-
-                var displayTimes = [];
-                for (let z = 0; z < times.length; z++) {
-                    displayTimes.push(moment(times[z]).format("HH:MM"))
-                        var display = [];
-                        for (var d = 0; d < displayTimes.length; d++) {
-                            
-                            display.push(`<button class = "book-btn">${displayTimes[d]}</button>`)
-                            
+                var buttonCell = $("<td>");
+                        for (var d = 0; d < showtime.length; d++) {
+                            theater = showtime[d].theatre.name;
+                            var link = $("<a>")
+                            .attr("href","booking.html?title="+title+"&showtime="+moment(showtime[d].dateTime).format("MM/DD/YYYY%20HH:mm")+"&theater="+theater)
+                            .addClass("btn btn-primary")
+                            .text(moment(showtime[d].dateTime).format("HH:MM"));
+                            // display.push(`<button class = "book-btn">${displayTimes[d]}</button>`)
+                            buttonCell.append(link);
                         };
-                };
-                console.log(displayTimes);
+                       
+                // };
+                // console.log(displayTimes);
+                console.log(link);
                                 
-
-
-                table.append(
-                    `<tr>
-                    <th scope="row">${response[i].title}</th>
-                    <td>${ratings}</td>
-                    <td>${rT}</td>
-                    <td>${response[i].genres}</td>
-                    <td>${theater}</td>
-                    <td>${display}</td>
-                    </tr>`
-            )};
+                var row = $("<tr>");
+                var colTitle = $("<td>").text(title);
+                var colRating = $("<td>").text(rating);
+                var colRuntime = $("<td>").text(displayRuntime(rT)+" min");
+                var colGenre = $("<td>").text(genres);
+                var colTheater = $("<td>").text(theater);
+                row.append(colTitle);
+                row.append(colRating);
+                row.append(colRuntime);
+                row.append(colGenre);
+                row.append(colTheater);
+                row.append(buttonCell);
+                table.append(row);
+        
+                };
         });
 
 
     };
 
-    $(document).on("click", ".book-btn", function (event) {
-        event.preventDefault();
-        window.location="booking.html";
-    }); 
-    
 
     // function to get location latitude and longitude
     function latlngAjaxCall () {
@@ -188,6 +187,11 @@ $('document').ready( function() {
         
     };
 
+
+    // $(document).on("click", ".book-btn", function () {
+    //     event.preventDefault();
+    //     window.location="booking.html";
+    // }); 
 
 
 });

@@ -14,15 +14,19 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 //these are placeholders for movie params
-var movie = "The Godfather";
-var theater = "Regal 12";
-var movieTime = "04/01/2019 08:00";
+var titleParam = "";
+var theaterParam = "";
+var showtimeParam = "";
 
 var prices = [12, 8, 5, 9];
 var charges = [0, 0, 0, 0];
 var seatHolder = [0, 0, 0, 0];
 
 
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
 
 function getSum(total, num) {
     return total + num;
@@ -72,6 +76,10 @@ function processPayment(event) {
     var cZip = $("#zip-input").val().trim(); 
     var totalSeats = seatHolder.reduce(getSum);
     var grandtotal = charges.reduce(getSum);
+
+    showtimeParam = getParameterByName("showtime");
+    theaterParam = getParameterByName("theater");
+    titleParam = getParameterByName("title")
    
     // console.log(cType);
     // console.log(cName);
@@ -88,12 +96,14 @@ function processPayment(event) {
     newBooking.amt = grandtotal;
     newBooking.booking = moment().format("X");
     //these values come from front page
-    newBooking.movie = movie;
-    newBooking.time = moment(movieTime).format("X");
-    newBooking.theater = theater;
+    newBooking.movie = titleParam;
+    newBooking.time = moment(showtimeParam).format("X");
+    newBooking.theater = theaterParam;
 
     database.ref().push(newBooking);
- 
+
+    alert("Congratulations! You have purchased tickets for "+titleParam +" at "+theaterParam+ " theatre.  Showtime is "+moment(showtimeParam).format("HH:mm"));
+
 };
 
 $(".booknumselect").change(".booknumselect", calcTotal);
@@ -146,7 +156,7 @@ $("#payform").submit(function(e) {
     // Make sure the form is submitted to the destination defined
     // in the "action" attribute of the form when valid
     submitHandler: function(form) {
-        alert("doing somestuff");
+        // alert("doing somestuff");
     //   form.submit();
         return processPayment();
     }
