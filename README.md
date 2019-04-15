@@ -1,6 +1,14 @@
 # team6
 project 1 repository
 
+This project was to showcase usage of known and unknown API's as well as working within a team. 
+This project changed topics as API usage was blocked but obstacles were overcame.
+
+My team members were Clayton Seastrand and Robert Stuart
+
+
+                                            Original Project ReadMe
+###############################################################################################################
 
 
     Who is your target audience?   People looking to rent a car, travelers
